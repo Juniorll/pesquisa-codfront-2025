@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dev Profile & Feedback | SENAI</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>&lt;Dev_Profile /&gt;</h1>
+            <p class="subtitle">Técnico em Informática para Internet | Frontend</p>
+        </header>
+
+        <form id="studentForm">
+            <section class="card">
+                <h2>01. O Dev por trás do código</h2>
+                
+                <div class="input-group">
+                    <label>Nome Completo</label>
+                    <input type="text" id="nome" required placeholder="Digite seu nome">
+                </div>
+
+                <div class="input-group">
+                    <label>Idade</label>
+                    <input type="number" id="idade" required placeholder="Ex: 18">
+                </div>
+
+                <div class="input-group">
+                    <label>Hobbies (O que você faz offline?)</label>
+                    <textarea id="hobbies" placeholder="Games, esportes, música, leitura..."></textarea>
+                </div>
+
+                <div class="input-group">
+                    <label>Se sua vida fosse um gênero de filme/jogo, qual seria?</label>
+                    <input type="text" id="genero" placeholder="Ex: RPG, Terror, Comédia...">
+                </div>
+            </section>
+
+            <section class="card">
+                <h2>02. Setup & Carreira</h2>
+                
+                <div class="input-group">
+                    <label>Por que escolheu T.I.?</label>
+                    <select id="motivoTI">
+                        <option value="" disabled selected>Selecione...</option>
+                        <option value="paixao">Sempre gostei de computadores</option>
+                        <option value="dinheiro">Oportunidade de mercado/salário</option>
+                        <option value="curiosidade">Curiosidade em como funciona</option>
+                        <option value="games">Quero criar jogos</option>
+                        <option value="outro">Outro</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label>Qual seu objetivo com a disciplina de Frontend?</label>
+                    <textarea id="objetivoFrontend" placeholder="Ex: Quero aprender a fazer sites animados, quero entender React, etc..."></textarea>
+                </div>
+
+                <div class="input-group">
+                    <label>Nível de confiança atual com código (0 a 10)</label>
+                    <input type="range" id="nivel" min="0" max="10" value="5" oninput="this.nextElementSibling.value = this.value">
+                    <output>5</output>
+                </div>
+            </section>
+
+            <section class="card highlight-border">
+                <h2>03. Checkpoint (Feedback das aulas 1 e 2)</h2>
+                
+                <div class="input-group">
+                    <label>Como você avalia o ritmo das duas primeiras aulas?</label>
+                    <div class="radio-options">
+                        <label><input type="radio" name="ritmo" value="muito_lento"> Muito Lento</label>
+                        <label><input type="radio" name="ritmo" value="bom" checked> Bom/Adequado</label>
+                        <label><input type="radio" name="ritmo" value="muito_rapido"> Muito Rápido</label>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label>Nível de satisfação geral até agora (1 a 5 estrelas)</label>
+                    <div class="rating">
+                        <input type="radio" name="satisfacao" id="star5" value="5"><label for="star5">★</label>
+                        <input type="radio" name="satisfacao" id="star4" value="4"><label for="star4">★</label>
+                        <input type="radio" name="satisfacao" id="star3" value="3"><label for="star3">★</label>
+                        <input type="radio" name="satisfacao" id="star2" value="2"><label for="star2">★</label>
+                        <input type="radio" name="satisfacao" id="star1" value="1"><label for="star1">★</label>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label>Alguma sugestão, crítica ou elogio para as próximas aulas?</label>
+                    <textarea id="feedbackAberto" placeholder="Sinta-se livre, é anônimo se não quiser por o nome acima (brincadeira, o nome é obrigatório, mas seja sincero!)"></textarea>
+                </div>
+            </section>
+
+            <button type="submit" id="btnSubmit">ENVIAR DADOS >></button>
+        </form>
+    </div>
+
+    <script type="module" src="script.js"></script>
+</body>
+</html>
