@@ -129,3 +129,36 @@ button:hover {
     filter: brightness(1.2);
     box-shadow: 0 0 20px rgba(188, 19, 254, 0.6);
 }
+
+/* Adicione ao final do style.css */
+
+.checkbox-group {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Duas colunas */
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.checkbox-group label {
+    background: rgba(255,255,255,0.1);
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 0; /* Remove margem padrão */
+    font-weight: normal;
+}
+
+.checkbox-group label:hover {
+    background: rgba(0, 243, 255, 0.2);
+    border: 1px solid var(--primary-neon);
+}
+
+.checkbox-group input[type="checkbox"] {
+    accent-color: var(--secondary-neon);
+    width: 18px;
+    height: 18px;
+}
