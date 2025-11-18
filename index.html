@@ -3,23 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dev Profile & Feedback | SENAI</title>
+    <title>Dev Profile v2.0 | SENAI</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
 
     <div class="container">
         <header>
-            <h1>&lt;Dev_Profile /&gt;</h1>
-            <p class="subtitle">Técnico em Informática para Internet | Frontend</p>
+            <h1>&lt;Dev_Profile v2.0 /&gt;</h1>
+            <p class="subtitle">Mapeamento de Perfil & Feedback | Frontend</p>
         </header>
 
         <form id="studentForm">
+            
             <section class="card">
-                <h2>01. O Dev por trás do código</h2>
+                <h2><i class="fas fa-user-astronaut"></i> 01. Contexto & Rotina</h2>
                 
                 <div class="input-group">
                     <label>Nome Completo</label>
@@ -28,61 +30,107 @@
 
                 <div class="input-group">
                     <label>Idade</label>
-                    <input type="number" id="idade" required placeholder="Ex: 18">
+                    <input type="number" id="idade" required style="width: 100px;">
                 </div>
 
                 <div class="input-group">
-                    <label>Hobbies (O que você faz offline?)</label>
-                    <textarea id="hobbies" placeholder="Games, esportes, música, leitura..."></textarea>
+                    <label>Situação Profissional Atual</label>
+                    <select id="trabalha" onchange="toggleWorkDetails()">
+                        <option value="" disabled selected>Selecione...</option>
+                        <option value="nao_trabalha">Não estou trabalhando no momento</option>
+                        <option value="busca">Não trabalho, mas estou buscando ativamente</option>
+                        <option value="trabalha_fora">Trabalho (Fora da área de TI)</option>
+                        <option value="trabalha_ti">Já trabalho na área de TI/Dev</option>
+                        <option value="estagio">Faço estágio</option>
+                    </select>
+                </div>
+
+                <div class="input-group" id="workDetails">
+                    <label>Se trabalha/estagia, qual seu cargo e o que faz?</label>
+                    <input type="text" id="cargo" placeholder="Ex: Auxiliar adm, Suporte técnico, Vendas...">
                 </div>
 
                 <div class="input-group">
-                    <label>Se sua vida fosse um gênero de filme/jogo, qual seria?</label>
-                    <input type="text" id="genero" placeholder="Ex: RPG, Terror, Comédia...">
+                    <label>Hobbies (O que você faz para descompressão?)</label>
+                    <textarea id="hobbies" placeholder="Games (quais?), Esportes, Música, Séries..."></textarea>
                 </div>
             </section>
 
             <section class="card">
-                <h2>02. Setup & Carreira</h2>
+                <h2><i class="fas fa-laptop-code"></i> 02. Bagagem Técnica (XP)</h2>
                 
                 <div class="input-group">
-                    <label>Por que escolheu T.I.?</label>
-                    <select id="motivoTI">
-                        <option value="" disabled selected>Selecione...</option>
-                        <option value="paixao">Sempre gostei de computadores</option>
-                        <option value="dinheiro">Oportunidade de mercado/salário</option>
-                        <option value="curiosidade">Curiosidade em como funciona</option>
-                        <option value="games">Quero criar jogos</option>
-                        <option value="outro">Outro</option>
+                    <label>Qual sua experiência prática com criação de sites/código?</label>
+                    <select id="experiencia_dev">
+                        <option value="zero">Nenhuma (Estou começando do zero absoluto)</option>
+                        <option value="basico_html">Já brinquei com HTML/CSS básico</option>
+                        <option value="logica">Já estudei Lógica de Programação (Python, C, VisualG)</option>
+                        <option value="avancado">Já fiz sites completos / Freelance</option>
                     </select>
                 </div>
 
                 <div class="input-group">
-                    <label>Qual seu objetivo com a disciplina de Frontend?</label>
-                    <textarea id="objetivoFrontend" placeholder="Ex: Quero aprender a fazer sites animados, quero entender React, etc..."></textarea>
-                </div>
-
-                <div class="input-group">
-                    <label>Nível de confiança atual com código (0 a 10)</label>
-                    <input type="range" id="nivel" min="0" max="10" value="5" oninput="this.nextElementSibling.value = this.value">
-                    <output>5</output>
-                </div>
-            </section>
-
-            <section class="card highlight-border">
-                <h2>03. Checkpoint (Feedback das aulas 1 e 2)</h2>
-                
-                <div class="input-group">
-                    <label>Como você avalia o ritmo das duas primeiras aulas?</label>
-                    <div class="radio-options">
-                        <label><input type="radio" name="ritmo" value="muito_lento"> Muito Lento</label>
-                        <label><input type="radio" name="ritmo" value="bom" checked> Bom/Adequado</label>
-                        <label><input type="radio" name="ritmo" value="muito_rapido"> Muito Rápido</label>
+                    <label>Já usou alguma dessas tecnologias? (Marque quais conhece)</label>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" name="techs" value="HTML"> HTML</label>
+                        <label><input type="checkbox" name="techs" value="CSS"> CSS</label>
+                        <label><input type="checkbox" name="techs" value="JS"> JavaScript</label>
+                        <label><input type="checkbox" name="techs" value="Git"> Git/GitHub</label>
+                        <label><input type="checkbox" name="techs" value="Python"> Python</label>
+                        <label><input type="checkbox" name="techs" value="SQL"> Banco de Dados</label>
+                        <label><input type="checkbox" name="techs" value="Figma"> Figma/Design</label>
                     </div>
                 </div>
 
                 <div class="input-group">
-                    <label>Nível de satisfação geral até agora (1 a 5 estrelas)</label>
+                    <label>Possui computador/internet em casa para praticar?</label>
+                    <select id="infra_casa">
+                        <option value="sim_bom">Sim, PC/Note bom e internet estável</option>
+                        <option value="sim_lento">Sim, mas o PC é antigo/lento</option>
+                        <option value="nao_apenas_celular">Não, uso apenas o celular</option>
+                        <option value="nao">Não possuo</option>
+                    </select>
+                </div>
+
+                 <div class="input-group">
+                    <label>Link do GitHub ou Portfolio (Opcional)</label>
+                    <input type="text" id="github_user" placeholder="https://github.com/seu-usuario">
+                </div>
+            </section>
+
+            <section class="card">
+                <h2><i class="fas fa-brain"></i> 03. Estilo de Aprendizagem</h2>
+
+                <div class="input-group">
+                    <label>Como você aprende melhor?</label>
+                    <select id="estilo_aprendizado">
+                        <option value="mao_massa">Mão na massa (Tentativa e erro)</option>
+                        <option value="visual">Visual (Vendo slides, diagramas, vídeos)</option>
+                        <option value="teorico">Leitura (Documentação, livros, tutoriais escritos)</option>
+                        <option value="social">Social (Discutindo com colegas/professor)</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label>O que você espera alcançar especificamente nesta disciplina?</label>
+                    <textarea id="expectativa" placeholder="Ex: Criar um portfólio, conseguir um estágio, entender como o navegador funciona..."></textarea>
+                </div>
+            </section>
+
+            <section class="card highlight-border">
+                <h2><i class="fas fa-chart-line"></i> 04. Checkpoint (Aulas 1 e 2)</h2>
+                
+                <div class="input-group">
+                    <label>Sobre o ritmo das aulas até agora:</label>
+                    <div class="radio-options">
+                        <label><input type="radio" name="ritmo" value="muito_lento"> Muito Lento (Tédio)</label>
+                        <label><input type="radio" name="ritmo" value="bom" checked> No Ponto (Adequado)</label>
+                        <label><input type="radio" name="ritmo" value="muito_rapido"> Muito Rápido (Socorro)</label>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label>Nível de satisfação geral (1 a 5 estrelas)</label>
                     <div class="rating">
                         <input type="radio" name="satisfacao" id="star5" value="5"><label for="star5">★</label>
                         <input type="radio" name="satisfacao" id="star4" value="4"><label for="star4">★</label>
@@ -93,8 +141,8 @@
                 </div>
 
                 <div class="input-group">
-                    <label>Alguma sugestão, crítica ou elogio para as próximas aulas?</label>
-                    <textarea id="feedbackAberto" placeholder="Sinta-se livre, é anônimo se não quiser por o nome acima (brincadeira, o nome é obrigatório, mas seja sincero!)"></textarea>
+                    <label>Espaço Livre: Dúvidas, Críticas ou Sugestões</label>
+                    <textarea id="feedbackAberto" placeholder="Pode ser sincero!"></textarea>
                 </div>
             </section>
 
